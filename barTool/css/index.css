@@ -1,0 +1,239 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'icomoon';
+  src: url("fonts/icomoon.eot?evt4a5");
+  src: url("fonts/icomoon.eot?evt4a5#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?evt4a5") format("truetype"), url("fonts/icomoon.woff?evt4a5") format("woff"), url("fonts/icomoon.svg?evt4a5#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"], .toolbar-btn, [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wechat:before, .toolbar-item-weixin .toolbar-btn:before {
+  content: "\e900";
+}
+
+.icon-mobile:before, .toolbar-item-app .toolbar-btn:before {
+  content: "\e958";
+}
+
+.icon-cool:before, .toolbar-item-feedback .toolbar-btn:before {
+  content: "\e9eb";
+}
+
+.icon-arrow-up:before, .toolbar-item-top .toolbar-btn:before {
+  content: "\ea32";
+}
+
+/* @mixin tool-item(){
+	background-position: 0 $pos;
+	&:hover{
+		background-position: 0 $hoverpos;
+	}
+}
+@include toolbar-item(-798px,-860px); */
+/*.toolbar-item,.toolbar-btn,.toolbar-icon,.toolbar-text{
+  width: $toolbar-size;
+  height: $toolbar-size;
+}
+.toolbar-icon,.toolbar-text{
+  position: absolute;
+  left: 0;
+  color: #fff;
+  text-align: center;
+  @include transition(top 1s);
+}
+.toolbar{
+  position: fixed;
+  right: 10px;
+  bottom: 5px;
+}
+.toolbar-item{
+  position: relative;
+  display: block;
+  margin-top: 1px;
+  &:hover{
+    .toolbar-icon{
+      top:-$toolbar-size;
+    }
+    .toolbar-text{
+      top:0;
+    }
+    .toolbar-layer{
+        @include opacity(1);
+        @include scale(1);
+    }
+  }
+}
+.toolbar-btn{
+  position: absolute;
+  left: 0;
+  top: 0; 
+  overflow: hidden;
+
+}
+.toolbar-icon{
+  top: 0;
+  background-color: #ddd;
+  font-size: 30px;
+  line-height: $toolbar-size;
+}
+.toolbar-text{
+  top: $toolbar-size; 
+  background-color: #98a1a6;
+  padding-top: 12px;
+  font-size: 12px;
+  line-height:1.2;
+}
+.toolbar-layer{
+  position: absolute;
+  right: $toolbar-size;
+  bottom: -10px;
+  width: 126px;
+  @include opacity(0);
+  @include transform-origin(95% 95%);
+  @include scale(0.01);
+  @include transition(all 1s);
+
+}
+.toolbar-layer-weixin{
+height: 150px;
+background-image: url(../qrcode1.jpg);
+background-repeat: no-repeat;
+}
+.toolbar-layer-app{
+  background-image: url(../qrcode2.jpg);
+  background-repeat: no-repeat;
+} */
+.toolbar-item, .toolbar-btn, .toolbar-btn:before, .toolbar-btn:after {
+  width: 52px;
+  height: 52px;
+}
+
+.toolbar {
+  position: fixed;
+  right: 10px;
+  bottom: 5px;
+}
+
+.toolbar-item {
+  position: relative;
+  display: block;
+  margin-top: 1px;
+}
+.toolbar-item:hover .toolbar-btn:before {
+  top: -52px;
+}
+.toolbar-item:hover .toolbar-btn:after {
+  top: 0;
+}
+.toolbar-item:hover:after {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.toolbar-item:after {
+  content: "";
+  position: absolute;
+  right: 52px;
+  bottom: -10px;
+  width: 126px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transform-origin: 95% 95%;
+  -moz-transform-origin: 95% 95%;
+  -ms-transform-origin: 95% 95%;
+  -o-transform-origin: 95% 95%;
+  transform-origin: 95% 95%;
+  -webkit-transform: scale(0.01);
+  -moz-transform: scale(0.01);
+  -ms-transform: scale(0.01);
+  -o-transform: scale(0.01);
+  transform: scale(0.01);
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+.toolbar-item-weixin:after {
+  content: "";
+  height: 150px;
+  background-image: url(../qrcode1.jpg);
+  background-repeat: no-repeat;
+}
+.toolbar-item-weixin .toolbar-btn {
+  /* &:before{
+    content: "\e900";
+  } */
+}
+.toolbar-item-weixin .toolbar-btn:after {
+  content: "公众\A账号";
+}
+
+.toolbar-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+.toolbar-btn:before, .toolbar-btn:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  color: #fff;
+  text-align: center;
+  -webkit-transition: top 1s;
+  -moz-transition: top 1s;
+  -ms-transition: top 1s;
+  -o-transition: top 1s;
+  transition: top 1s;
+}
+.toolbar-btn:before {
+  top: 0;
+  background-color: #d0d6d9;
+  font-size: 30px;
+  line-height: 52px;
+}
+.toolbar-btn:after {
+  top: 52px;
+  background-color: #98a1a6;
+  font-size: 12px;
+  line-height: 1.2;
+  padding-top: 12px;
+  white-space: pre;
+}
+
+.toolbar-item-feedback .toolbar-btn:after {
+  content: "意见\A反馈";
+}
+
+.toolbar-item-app:after {
+  content: "";
+  height: 150px;
+  background-image: url(../qrcode2.jpg);
+  background-repeat: no-repeat;
+}
+.toolbar-item-app .toolbar-btn:after {
+  content: "APP\A下载";
+}
+
+.toolbar-item-top .toolbar-btn:after {
+  content: "返回\A顶部";
+}

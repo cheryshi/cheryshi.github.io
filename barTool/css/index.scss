@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?evt4a5');
+  src:  url('fonts/icomoon.eot?evt4a5#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?evt4a5') format('truetype'),
+    url('fonts/icomoon.woff?evt4a5') format('woff'),
+    url('fonts/icomoon.svg?evt4a5#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wechat:before {
+  content: "\e900";
+}
+.icon-mobile:before {
+  content: "\e958";
+}
+.icon-cool:before {
+  content: "\e9eb";
+}
+.icon-arrow-up:before {
+  content: "\ea32";
+}
+@import "mixin";
+ $toolbar-size:52px;
+/*.toolbar-item,.toolbar-btn,.toolbar-icon,.toolbar-text{
+  width: $toolbar-size;
+  height: $toolbar-size;
+}
+.toolbar-icon,.toolbar-text{
+  position: absolute;
+  left: 0;
+  color: #fff;
+  text-align: center;
+  @include transition(top 1s);
+}
+.toolbar{
+  position: fixed;
+  right: 10px;
+  bottom: 5px;
+}
+.toolbar-item{
+  position: relative;
+  display: block;
+  margin-top: 1px;
+  &:hover{
+    .toolbar-icon{
+      top:-$toolbar-size;
+    }
+    .toolbar-text{
+      top:0;
+    }
+    .toolbar-layer{
+        @include opacity(1);
+        @include scale(1);
+    }
+  }
+}
+.toolbar-btn{
+  position: absolute;
+  left: 0;
+  top: 0; 
+  overflow: hidden;
+
+}
+.toolbar-icon{
+  top: 0;
+  background-color: #ddd;
+  font-size: 30px;
+  line-height: $toolbar-size;
+}
+.toolbar-text{
+  top: $toolbar-size; 
+  background-color: #98a1a6;
+  padding-top: 12px;
+  font-size: 12px;
+  line-height:1.2;
+}
+.toolbar-layer{
+  position: absolute;
+  right: $toolbar-size;
+  bottom: -10px;
+  width: 126px;
+  @include opacity(0);
+  @include transform-origin(95% 95%);
+  @include scale(0.01);
+  @include transition(all 1s);
+
+}
+.toolbar-layer-weixin{
+height: 150px;
+background-image: url(../qrcode1.jpg);
+background-repeat: no-repeat;
+}
+.toolbar-layer-app{
+  background-image: url(../qrcode2.jpg);
+  background-repeat: no-repeat;
+} */
+.toolbar-item,.toolbar-btn,.toolbar-btn:before,.toolbar-btn:after{
+  width: $toolbar-size;
+  height:$toolbar-size;
+}
+.toolbar{
+  position: fixed;
+  right:10px;
+  bottom: 5px; 
+}
+.toolbar-item{
+position: relative;
+display: block;
+margin-top: 1px;
+&:hover{
+  .toolbar-btn{
+    &:before{
+      top:-$toolbar-size;
+    }
+    &:after{
+      top: 0;
+    }
+  }
+  &:after{
+    @include opacity(1);
+    @include scale(1);
+  }
+}
+&:after{
+  content: "";
+  position: absolute;
+  right: $toolbar-size;
+  bottom: -10px;
+  width: 126px;
+  @include opacity(0);
+  @include transform-origin(95% 95%);
+  @include scale(0.01);
+  @include transition(all 1s);
+}
+}
+.toolbar-item-weixin{
+  &:after{
+    content: "";
+    height:150px;
+    background-image: url(../qrcode1.jpg);
+    background-repeat: no-repeat;
+  }
+  .toolbar-btn{
+    @extend .icon-wechat;
+    /* &:before{
+      content: "\e900";
+    } */
+    &:after{
+      content:"公众\A账号";
+    }
+  }
+
+}
+.toolbar-btn{
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow:hidden;
+@extend [class^="icon-"];
+
+  &:before,&:after{
+    content: "";
+    position: absolute;
+    left: 0;
+     color: #fff;
+    text-align: center;
+     @include transition(top 1s);
+  }
+  &:before{
+    
+    top: 0;
+    background-color: #d0d6d9;
+    font-size: 30px;
+    line-height: $toolbar-size;
+  }
+  &:after{
+  top:$toolbar-size;
+  background-color: #98a1a6;
+  font-size: 12px;
+  line-height:1.2;
+  padding-top: 12px;
+  white-space: pre;
+  }
+}
+.toolbar-item-feedback{
+    .toolbar-btn{
+     @extend .icon-cool;
+      &:after{
+      content:"意见\A反馈";
+    }
+  }
+}
+.toolbar-item-app{
+  &:after{
+    content: "";
+    height:150px;
+    background-image: url(../qrcode2.jpg);
+    background-repeat: no-repeat;
+  }
+      .toolbar-btn{
+      @extend .icon-mobile;
+      &:after{
+      content:"APP\A下载";
+    }
+  }
+}
+.toolbar-item-top{
+    .toolbar-btn{
+      @extend .icon-arrow-up;
+      &:after{
+      content:"返回\A顶部";
+    }
+  }
+}
